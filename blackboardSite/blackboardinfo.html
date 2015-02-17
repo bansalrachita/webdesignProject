@@ -1,0 +1,246 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	
+	<title>Bouve College of Health Sciences Online</title>
+	
+<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="jquery-ui-1.11.2.custom/external/jquery/jquery.js"></script>
+	
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+	<link href="css/form8.css" rel="stylesheet">
+	<link href="config/sticky-footer-navbar.css" rel="stylesheet">
+	<style>
+#bs-example-navbar-collapse-1{
+								float:right;
+								font-family:"Verdana";
+								margin-top:40px;
+								margin-right:60px;
+								line-space:20px;
+								text-transform:"capitalize";
+									
+							}
+.wrapper{	height: 530px;
+	        margin: auto;
+			width:1300px;
+			background-color:#fff;
+										
+			}
+			
+body{background-color:#D9D2D3;}										
+.list1{ list-style: none; }	
+	
+.list1 a{ font-family: "Vardana";
+     	  color: #fff;
+                       }
+#text{ background-color:#aaa;
+	   margin-left:30px;
+                          }
+		  
+.tooltip { /* hide and position tooltip */
+			top:+80px;
+			background-color:#fff;
+			border-radius:5px;
+			color:white;
+			opacity:0;
+			font-size:1em;
+			font-family:verdana;
+			position:absolute;
+			-webkit-transition: opacity 0.5s;
+			-moz-transition: opacity 0.5s;
+			-ms-transition: opacity 0.5s;
+			-o-transition: opacity 0.5s;
+			transition: opacity 0.5s;
+			}
+.hover:hover .tooltip { /* display tooltip on hover */
+						   opacity:1;
+									}
+.hover {
+		  position:relative;
+  
+		}
+													
+.widget_search .glyphicon glyphicon-search:focus {
+													border: 1px solid #777777;
+													box-shadow: 0 0 4px 2px #DEDEDE;
+													font-size: 0.8em;
+													width: 150px;
+												}		
+								
+#livesearch{width:160px;
+			margin-left:20px;
+			z-index:1000;
+			position:absolute;
+			background-color:#fff;
+			}
+											
+#form2{float:right; 
+	   margin-top:15px;
+		}	
+#bookmark{float:right; font-size: 4.5em; margin: 10px; color:#1D4028;}
+		
+</style>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+$("#form1").hide();
+});
+
+$(document).ready(function(){
+  $("#menu-toggle").click(function(){
+    $("#form1").slideToggle("slow");
+	 });
+});
+</script>
+
+<script>
+function showResult(str) {
+  if (str.length==0) {
+    document.getElementById("livesearch").innerHTML="";
+    document.getElementById("livesearch").style.border="0px";
+    return;
+  }
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("livesearch").innerHTML=xmlhttp.responseText;
+      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+    }
+  }
+  xmlhttp.open("GET","livesearch.php?q="+str,true);
+  xmlhttp.send();
+}
+</script>
+
+<script>
+	function showHint(str) {
+		if (str.length == 0) {
+			document.getElementById("txtHint").innerHTML = "";
+			return;
+		} else {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("GET", "search.php?q=" + str, true);
+			xmlhttp.send();
+		}
+	}
+</script>
+
+</head>
+<body>
+<div class="wrapper">
+
+<nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <img src="http://www.northeastern.edu/bouve/assets/uploads/2014/05/bouve_logo.png" alt="Logo"/>
+        </div>
+        <div class = "collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="Home"><a href="Index.html">Home</a></li>
+			
+			<li class="dropdown hover">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Online Programs</a>
+				<ul class="dropdown-menu tooltip" role="menu">
+					<li><a href="#">Nursing (MS/MBA)</a></li>
+					<li><a href="#">Urban Health (MPH)</a></li>
+					<li><a href="#">Pharmacology (MS)</a></li>
+					<li><a href="#">Excercise Science (MS)</a></li>
+					<li class="divider"></li>
+					<li><a href="#">Interdisciplinary</a></li>
+					<li><a href="#">Health Informatics</a></li>
+				</ul>
+			</li>
+			<li class="dropdown hover">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Faculty Support Services</a>
+				<ul class="dropdown-menu tooltip" role="menu">
+					<li><a href="Facultyservices.html">Faculty Support Services</a></li>
+					<li class="divider"></li>
+					<li><a href="http://www.ats.neu.edu">Academic Technology Services</a></li>
+					<li class="divider"></li>
+					<li><a href="blackboardinfo.html">Teaching Technology Services</a></li>
+				</ul>
+			</li>
+			
+			<form id="form2"><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></a>
+				<input type="text" size="15" onkeyup="showResult(this.value)">
+				<div id="livesearch"></div>
+			</form>
+			
+			<li class="dropdown hover">
+			<a href="#" role="button" aria-expanded="false">Support</span></a>
+			<ul class="dropdown-menu tooltip" role="menu">
+			</li>
+			
+			<li><a href="http://www.northeastern.edu/its/get-started/faculty/">ITS Support</a></li>
+			</li>
+			</ul>
+			</li>
+			<li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+	<!--	<div class="col-md-7">-->
+	<div id="page-content-wrapper">
+          <!--  <div class="container-fluid">-->
+                <div class="row">
+                    <div class="col-lg-4" id="text">
+                        
+						<ul class="list1">
+						<li><a href="http://www.northeastern.edu/its/services/blackboard/"><h3>Blackboard General Information</h3></a></li>
+						<li><a href="http://www.ats.neu.edu/teaching-technology/blackboard/blackboard-learning-resources/"><h3>Blackboard Tutorials</h3></a></li>
+						<li><a href="http://www.ats.neu.edu/workshops-seminars/"><h3>Instructor Led Training Sessions</h3></a></li>
+						<li><button onClick="window.location='Index.html'" class="btn btn-default" >Back</button></li>
+						</ul>
+                        
+                    </div>
+					
+                </div>
+	 </div>
+	<!-- /#page-content-wrapper -->
+
+    <!-- Menu Toggle Script -->
+    <footer class="footer">
+      <div class="container">
+	  <a href="#top"><span id="bookmark" class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span></a>
+	  
+		<script>
+			$("a[href='#top']").click(function() {
+			$("html, body").animate({ scrollTop: 0 }, "slow");
+				return false;
+			});
+		</script>
+	
+		<p class="text-muted">Northeastern University</p>
+		
+			<p class="text-muted"><a href="http://myneu.neu.edu/cp/home/displaylogin"> MyNEU</a> • <a href="https://prod-web.neu.edu/wasapp/employeelookup/public/main.action">Find Faculty & Staff</a> • <a  href="http://www.northeastern.edu/neuhome/adminlinks/findaz.html">Find A-Z </a>• <a href="http://www.northeastern.edu/emergency/index.html">Emergency Information</a> • <a href="http://www.northeastern.edu/search/index.html">Search</a></p>
+
+			<p class="text-muted">360 Huntington Ave., Boston, Massachusetts 02115 • 617.373.2000 • TTY 617.373.3768© 2014 Northeastern University</p>
+	  </div>
+    </footer>
+	</div>
+	</body>
+	</html>

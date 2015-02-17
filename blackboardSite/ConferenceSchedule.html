@@ -1,0 +1,296 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bouve College of Health Sciences Online</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">	
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="config/jquery.js"></script>			
+<style>
+    .header {
+        color: #36A0FF;
+        font-size: 27px;
+        padding: 10px;
+    }
+
+    .bigicon {
+        font-size: 35px;
+        color: #36A0FF;
+    }
+	
+	#bs-example-navbar-collapse-1{
+									float:right;
+									font-family:"Verdana";
+									line-space:20px;
+									text-transform:"capitalize";
+									margin-top:40px;
+									margin-left:20px;
+									
+								}
+	
+#page-content-wrapper{margin: 20px;}
+										
+.wrapper{	height: auto;
+			margin: auto;
+			width: 1300;
+			background-color:#fff;
+			}
+.tooltip { /* hide and position tooltip */
+			top:+80px;
+			background-color:#fff;
+			border-radius:5px;
+			color:white;
+		    font-size:1em;
+			font-family:verdana;
+			opacity:0;
+			position:absolute;
+			-webkit-transition: opacity 0.5s;
+			-moz-transition: opacity 0.5s;
+			-ms-transition: opacity 0.5s;
+			-o-transition: opacity 0.5s;
+			transition: opacity 0.5s;
+			}
+.hover:hover .tooltip { /* display tooltip on hover */
+						opacity:1;
+						}
+.hover {
+		position:relative;
+							   
+			}
+body{background-color:#D9D2D3;}	
+.widget_search .glyphicon glyphicon-search:focus {
+													border: 1px solid #777777;
+													box-shadow: 0 0 4px 2px #DEDEDE;
+													font-size: 0.8em;
+													width: 150px;
+												}		
+								
+#livesearch{width:160px;
+			margin-left:20px;
+			z-index:1000;
+			position:absolute;
+			background-color:#fff;
+			}
+											
+#form2{float:right; 
+	   margin:15px;
+		}		
+</style> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+$("#form1").hide();
+});
+
+$(document).ready(function(){
+  $("#menu-toggle").click(function(){
+    $("#form1").slideToggle("slow");
+	 });
+});
+</script>
+<script>
+	function showHint(str) {
+		if (str.length == 0) {
+			document.getElementById("txtHint").innerHTML = "";
+			return;
+		} else {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("GET", "search.php?q=" + str, true);
+			xmlhttp.send();
+		}
+	}
+</script>
+<!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+		$("#menu-toggle").hide();
+       
+    });
+    </script> 
+<script>
+function showResult(str) {
+  if (str.length==0) {
+    document.getElementById("livesearch").innerHTML="";
+    document.getElementById("livesearch").style.border="0px";
+    return;
+  }
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("livesearch").innerHTML=xmlhttp.responseText;
+      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+    }
+  }
+  xmlhttp.open("GET","livesearch.php?q="+str,true);
+  xmlhttp.send();
+}
+</script>
+<script>			
+		$(.btn btn-primary btn-lg).click(function(){
+		validateForm();});
+		function validateForm(){
+			var firstname1 = /^[A-za-z]+$/;
+			var lastName1 = /^[A-za-z]+$/;
+			var email1 = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+			
+			var firstName = $('#fname').val();
+			var email = $('#email').val();
+			var lastName = $('#lname').valu();
+			
+			var inputVal = new Array(fname, lname, email);
+			var inputMessage = new Array("first name", "last name", "email address");
+			$('.error').hide();
+			if(inputVal[0] == ""){
+            $('#nameLabel').after('<span class="error"> Please enter your ' + inputMessage[0] + '</span>');
+        } 
+		}
+	</script>
+</head>
+
+<body>
+<div class="wrapper">
+<nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <img src="http://www.northeastern.edu/bouve/assets/uploads/2014/05/bouve_logo.png" alt="Logo"/>
+        </div>
+        <div class = "collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="Home"><a href="Index.html">Home</a></li>
+			
+			<li class="dropdown hover">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Online Programs</a>
+				<ul class="dropdown-menu tooltip" role="menu">
+					<li><a href="#">Nursing (MS/MBA)</a></li>
+					<li><a href="#">Urban Health (MPH)</a></li>
+					<li><a href="#">Pharmacology (MS)</a></li>
+					<li><a href="#">Excercise Science (MS)</a></li>
+					<li class="divider"></li>
+					<li><a href="#">Interdisciplinary</a></li>
+					<li><a href="#">Health Informatics</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown hover">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Faculty Support Services</a>
+				<ul class="dropdown-menu tooltip" role="menu">
+					<li><a href="Facultyservices.html">Faculty Support Services</a></li>
+					<li class="divider"></li>
+					<li><a href="http://www.ats.neu.edu">Academic Technology Services</a></li>
+					<li class="divider"></li>
+					<li><a href="blackboardinfo.html">Teaching Technology Services</a></li>
+				</ul>
+			</li>
+			
+			<form id="form2"><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></a>
+				<input type="text" size="15" onkeyup="showResult(this.value)">
+				<div id="livesearch"></div>
+			</form>
+			
+			<li class="dropdown hover">
+			<a href="#" role="button" aria-expanded="false">Support</span></a>
+			<ul class="dropdown-menu tooltip" role="menu">
+			</li>
+			<li><a href="http://www.northeastern.edu/its/get-started/faculty/">ITS Support</a></li>
+			</li>
+			</ul>
+			</li>
+			<li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+<!-- Page Content -->
+		
+		<script type="text/javascript">
+			
+		</script>
+		
+    <div id="page-content-wrapper">
+                <div class="row">
+                    <div class="col-lg-12" id="text">
+                        <h1>Upcoming...</h1>
+                        <p>The Online Course Design Orientation Program is a 4-week, asynchronous, online experience designed to: familiarize faculty with teaching and learning in an online environment; 
+						   link principles of learning to the online context; and empower faculty to work other professionals on the development of an online course. The course is organized into weekly sessions. </p>
+						   <p>It is expected that each week participants will watch content modules and videos and complete a course assignment that applies the week’s content to the participant’s own course. 
+						   We estimate the work to require approximately two hours per week to complete. To attain the full benefit of the experience, participants will complete assignments, review the work 
+						   of others, and interact with peers in discussion.If you are interested in joining the Center For Advancing Teaching Learning Through Research (CALTR) online course development orientation program offered by Northeastern University, please Sign-Up below.</p>
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Register</a>
+                    </div>
+                </div>
+				
+	<div class="row" id="form1">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form class="form-horizontal" method="post" action="formSubmit.php">
+                    <fieldset>
+                        <legend class="text-center header">Register with us</legend>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="fname" name="fname" type="text" placeholder="First Name" class="form-control">
+                            </div>
+                        </div>
+						
+                        <div class="form-group" >
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="lname" name="lname" type="text" placeholder="Last Name" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="email" name="email" type="text" placeholder="Email Address" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="phone" name="Program" type="text" placeholder="Program" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="message" name="message" placeholder="CALTR Overview. We will get back to you within 2 business days." rows="7"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </div>
+						
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

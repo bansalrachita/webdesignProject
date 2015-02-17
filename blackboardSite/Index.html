@@ -1,0 +1,306 @@
+<html>
+<head>
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="config/jquery-ui.min.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<!--CSS for mobile friendly-->
+	<link rel="stylesheet" type="text/css" href="config/jcarousel.basic.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<!-- Important Owl stylesheet -->
+    <link rel="stylesheet" href="config/owl.carousel.css">
+	<!-- Default Theme -->
+    <link rel="stylesheet" href="config/owl.theme.css">
+	<link rel="stylesheet" href="/resources/demos/style.css"/>
+	<link href="config/sticky-footer-navbar.css" rel="stylesheet">
+    <script src="config/owl.carousel.js"></script>
+	
+   <script>
+    $(document).ready(function() {
+      $("#owl-demo").owlCarousel({
+        autoPlay: 4000,
+        items : 4,
+        itemsDesktop : [2000,1],
+        itemsDesktopSmall : [979,3]
+      });
+
+    });	
+	</script>
+	<script>
+		function showHint(str) {
+			if (str.length == 0) {
+				document.getElementById("txtHint").innerHTML = "";
+				return;
+			} else {
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET", "search.php?q=" + str, true);
+				xmlhttp.send();
+			}
+		}
+	</script>
+	<script>
+	var counter=1;
+	$(document).ready(function() {
+
+	// run the currently selected effect
+	function runEffect() { 
+							if(counter > 1) {
+							setTimeout(function() {$( "#effect:visible" ).removeAttr( "style" ).slideToggle( "slide" );}, 100 );
+							counter--;
+							}
+							
+							else{
+							$( "#effect" ).slideToggle( "slide" ); 
+							++counter;
+							}
+							};
+
+
+	// set effect from select menu value
+	$( "#glyph" ).click(function() {runEffect();});
+
+	$( "#effect" ).hide();
+
+	});
+
+	</script>
+			
+	<style>
+	#bs-example-navbar-collapse-1{
+									float:right;
+									font-family:"Verdana";
+									line-space:20px;
+									text-transform:"capitalize";
+									margin-top:40px;
+									
+								}
+	.owl-carousel{			margin-left:200px;
+									margin-top:20px;
+									width:900px;
+							
+							}
+	.tooltip { /* hide and position tooltip */
+											top:+80px;
+											background-color:#fff;
+											border-radius:5px;
+											color:white;
+											font-size:1em;
+											font-family:verdana;
+											opacity:0;
+											position:absolute;
+											-webkit-transition: opacity 0.5s;
+											-moz-transition: opacity 0.5s;
+											-ms-transition: opacity 0.5s;
+											-o-transition: opacity 0.5s;
+											transition: opacity 0.5s;
+										}
+	.hover:hover .tooltip { /* display tooltip on hover */
+																	opacity:1;
+	
+																}
+	.hover {
+										position:relative;
+							   
+										}
+	#livesearch{width:160px;
+											margin-left:20px;
+											z-index:1000;
+											position:absolute;
+											background-color:#fff;}
+	.wrapper{	height: auto;
+											margin: auto;
+											width: 1300;
+											background-color:#fff;
+										
+										}
+	h1{		text-align:center;
+									margin:90px;
+									}
+	body{background-color:#D9D2D3;}
+	#message{	background-color:#1D4028;
+											width: 1280px;
+											height:400px;
+											margin:10px;
+											color:white;
+											
+										}
+										
+	#picture{	margin:40px;
+				margin-top: 100px;
+										}	
+	.toggler { width: 1500px;}							
+	#button { padding: .5em 1em; text-decoration: none; }							
+	#effect { width: 1300px; height: 50px; padding: 0.4em; position: relative; z-index:100; }					
+	#effect h2{ margin: 0; padding: 0.4em; text-align: center; }
+	#effect a {color:#39423D;font-family:"Verdana";}
+	#bookmark{float:right; font-size: 4.5em; margin: 10px; color:#1D4028;}
+	#form1{float:right; margin-top:15px;}
+	
+<script>
+function showResult(str) {
+  if (str.length==0) {
+    document.getElementById("livesearch").innerHTML="";
+    document.getElementById("livesearch").style.border="0px";
+    return;
+  }
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("livesearch").innerHTML=xmlhttp.responseText;
+      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+    }
+  }
+  xmlhttp.open("GET","livesearch.php?q="+str,true);
+  xmlhttp.send();
+}
+</script>
+	</style>
+</head>
+
+<body>
+<div class="wrapper">
+<a name= "top"></a>
+	<nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <img src="http://www.northeastern.edu/bouve/assets/uploads/2014/05/bouve_logo.png" alt="Logo"/>
+        </div>
+        <div class = "collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="Home"><a href="#" onclick="window.location.reload(true);">Home</a></li>
+			
+			<li class="dropdown hover">
+			<a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Online Programs</a>
+				<ul class="dropdown-menu tooltip" role="menu">
+					<li><a href="#">Nursing (MS/MBA)</a></li>
+					<li><a href="#">Urban Health (MPH)</a></li>
+					<li><a href="#">Pharmacology (MS)</a></li>
+					<li><a href="#">Excercise Science (MS)</a></li>
+					<li class="divider"></li>
+					<li><a href="#">Interdisciplinary</a></li>
+					<li><a href="#">Health Informatics</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown hover">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Faculty Support Services</a>
+				<ul class="dropdown-menu tooltip" role="menu">
+					<li><a href="Facultyservices.html">Faculty Support Services</a></li>
+					<li class="divider"></li>
+					<li><a href="http://www.ats.neu.edu">Academic Technology Services</a></li>
+					<li class="divider"></li>
+					<li><a href="blackboardinfo.html">Teaching Technology Services</a></li>
+				</ul>
+			</li>
+			
+			<form id="form1"><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></a>
+				<input type="text" size="15" onkeyup="showResult(this.value)">
+				<div id="livesearch"></div>
+			</form>
+			<li class="dropdown hover">
+			<a href="#" role="button" aria-expanded="false">Support</span></a>
+			<ul class="dropdown-menu tooltip" role="menu">
+			<li>
+			<li><a href="http://www.northeastern.edu/its/get-started/faculty/">ITS Support</a></li>
+			</li>
+			</ul>
+			</li>
+			<!-- <li><a href="#">About US</a></li>-->
+			<li><a href="#contact">Contact</a></li>
+			<!--<li><a href="main_login.php"><span class= "glyphicon glyphicon-user" aria-hidden="true"></span>Login</a></li>
+			<li></li> -->
+          </ul>
+        <!--/.nav-collapse -->
+      </div>
+	</div>
+    </nav>
+<div class="jcarousel-wrapper">
+          <div class="row">
+              <ul id="owl-demo" class="owl-carousel">
+                <li><img class=".border_gradient"  src="images/SchoolOfNursing.jpg" width="1000" height="400" alt=""></li>
+						<li>	<img class=.border_gradient src="images/ExerciseScience.PNG" width="1000" height="400" alt=""></li>
+						<li>	<img class=.border_gradient src="images/MPHPUblichealth.PNG" width="1000" height="400" alt=""></li>
+						<li>	<img class=.border_gradient src="images/MPHUH.jpg" width="1000" height="400" alt=""></li>
+						<li>	<img class=.border_gradient src="images/healthInformatics.png" width="1000" height="400" alt=""></li>
+				
+              </ul>
+          </div>
+	</div>
+	<div class = "row">
+	<div class="col-md-12">
+		<h1>Our Services&nbsp&nbsp<span class = "glyphicon glyphicon-list" id="glyph" aria-hidden="true"></span></h1>
+		<div class="toggler">
+			<div id="effect" class="ui-widget-content ui-corner-all">
+				<h2 class="ui-widget-header ui-state-default"><a href="StudentSupport.html">Student Support Services</a></h2>
+				<h2 class="ui-widget-header ui-state-default"><a href="Facultyservices.html">Faculty Support Services</a></h2>
+				<h2 class="ui-widget-header ui-state-default"><a href="ConferenceSchedule.html">Conference</a></h2>
+				
+			</div>
+		</div>
+		</div>
+	</div>
+	<div id="message" class="row">
+		<div class="col-md-4">
+
+		<div id="picture" class="row">
+		<p>Lance Lewis</p>
+		<p>Director of Online teaching and Distance Learning</p>
+		<p>000-000-0000</p>
+		<p>lewis.l@northeastern.edu</p>
+		</div>
+		</div>
+		<div class = "col-md-8">
+			<h2>The Center for Online & Hybrid Learning and Instructional Technologies Team</h2>
+			<p align="justify">Dr. Lance Lewis has been with the Division of Online & Hybrid Studies 
+					since its inception in Feb 2014. He has been engaged with online learning at 
+					Northeastern since XXXX. He most recently served as Director of online programs for 
+					Direct Entry and Distance Learning for Bouve' college of health Sciences at Northeastern University.</p>
+			   
+					<p align="justify">He is also an associate member of the graduate faculty in the Northeastern Graduate 
+					School of Education, teaching face-to-face, hybrid and fully online courses 
+					beginning in 1993. Dr. Lance is Past-President of the University Professional
+					and Continuing Education Association (UPCEA), the principal US organization 
+					for professional and continuing higher education. At Northeastern, Dr. Lance directs 
+					Online, the centralized home for Northeastern University online degree programs
+					using the course management system.</p>
+		</div>
+	</div>
+	<footer class="footer">
+      <div class="container">
+	  <a href="#top"><span id="bookmark" class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span></a>
+	  
+		<script>
+			$("a[href='#top']").click(function() {
+			$("html, body").animate({ scrollTop: 0 }, "slow");
+				return false;
+			});
+		</script>
+	
+		<p class="text-muted">Northeastern University</p>
+		
+			<p class="text-muted"><a href="http://myneu.neu.edu/cp/home/displaylogin"> MyNEU</a> • <a href="https://prod-web.neu.edu/wasapp/employeelookup/public/main.action">Find Faculty & Staff</a> • <a  href="http://www.northeastern.edu/neuhome/adminlinks/findaz.html">Find A-Z </a>• <a href="http://www.northeastern.edu/emergency/index.html">Emergency Information</a> • <a href="http://www.northeastern.edu/search/index.html">Search</a></p>
+
+			<p class="text-muted">360 Huntington Ave., Boston, Massachusetts 02115 • 617.373.2000 • TTY 617.373.3768© 2014 Northeastern University</p>
+	  </div>
+    </footer>
+</div>
+</body>
+</html>
